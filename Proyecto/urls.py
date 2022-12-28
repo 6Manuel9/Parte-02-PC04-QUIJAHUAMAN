@@ -18,4 +18,14 @@ from django.urls import path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', views.index, name = "index"),
+    path('inicio/', views.inicio, name = "inicio"),
+    path('noticias/',views.noticias, name = "noticias"),
+    path('contacto/',views.contacto,name="contacto"),
+    path('ayuda/',views.ayuda,name="ayuda"),
+    path('crear-tabla/<str:code>/<str:name>/<str:hour>/<str:credits>/<str:states>',views.crear_tabla,name="crear_tabla"),
+    path('editar-tabla/<int:id>',views.editar_tabla,name="editar_tabla"),
+    path('listar-tabla/',views.listar_tabla,name="listar_tabla"),
+    path('eliminar-tabla/<int:id>',views.eliminar_tabla, name='eliminar_tabla'),
+    path('create-tabla/',views.crear_tabla, name='crear_tabla'),
 ]

@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+ 
+{% block title %}
+    {{titulo}}
+{% endblock %}
+ 
+{% block content %}
+    <h1 class="title">{{code}} </h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <ul>
+        {% for course in courses %}
+            <li>
+                <h4>{{course.id}} - {{course.titulo}}</h4> 
+                <span>Creado: {{course.creado}}</span>
+                 {% if course.hour %}
+                    <strong> Hour </strong>
+                {% else %}
+                    <strong> No hay/Si hay </strong>
+                {% endif %}
+ 
+                 <p>{{course.name}}</p>
+                    <a href="{% url 'eliminar_articulo' id=course.id %}">Eliminar</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

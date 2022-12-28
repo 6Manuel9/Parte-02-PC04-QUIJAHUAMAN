@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{course}}
+{% endblock title %}
+
+{% block content %}
+<!--Comentario en HTML-->
+
+{% comment "Datos de la pagina index.html" %}
+    En esta pagina se mostrara la bienvenida al sistema.....
+{% endcomment %}
+    <h1 class="title">Página {{course}}</h1>
+    <p>Usando templates</p>
+    {% if mensaje %}
+        <p> Mensaje: {{mensaje}} </p>
+    {% else %}
+        <strong>El Mensaje no tiene contenido</strong>
+    {% endif %}
+    {% include 'listar_tabla.html' with encabezado="Cursos Registrados" %}
+    <p>Año: 2022</p>
+   
+{% endblock %}
